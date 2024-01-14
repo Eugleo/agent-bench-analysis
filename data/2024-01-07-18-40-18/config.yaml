@@ -1,0 +1,49 @@
+assignments:
+- agent: gpt-4-1106-preview
+  task: os-std
+concurrency:
+  agent:
+    gpt-4-1106-preview: 5
+  task:
+    os-std: 5
+definition:
+  agent:
+    gpt-4-1106-preview:
+      module: src.client.agents.HTTPAgent
+      parameters:
+        body:
+          max_tokens: 512
+          model: gpt-4-1106-preview
+          temperature: 0
+        headers:
+          Authorization: Bearer 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
+          Content-Type: application/json
+          OpenAI-Organization: org-p4cBd0CcaTvM0pjcrMCMbON4
+        name: gpt-4-1106-preview
+        prompter:
+          args:
+            agent_role: assistant
+          name: role_content_dict
+        return_format: '{response[choices][0][message][content]}'
+        url: https://api.openai.com/v1/chat/completions
+  task:
+    os-std:
+      module: src.client.TaskClient
+      parameters:
+        concurrency: 24
+        controller_address: http://localhost:3000/api
+        data_config:
+          bk: []
+          files:
+          - index_prefix: std-experiment-
+            problem_file: data/os_interaction/data/experiment/*.json
+            script_dir: data/os_interaction/scripts/experiment/
+          ignore: []
+        docker_config:
+          directory: data/os_interaction/res/dockerfiles
+          localhost: local-os
+        name: os-std
+        round_limit: 8
+        scripts:
+          directory: data/os_interaction/res/scripts
+output: outputs/2024-01-07-18-40-18

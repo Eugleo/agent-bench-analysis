@@ -1,0 +1,2 @@
+# Gitignore whole .venv folder
+.venv

@@ -1,0 +1,28 @@
+{
+    "total": 43,
+    "validation": {
+        "running": 0.0,
+        "completed": 0.7674418604651163,
+        "agent context limit": 0.0,
+        "agent validation failed": 0.0,
+        "agent invalid action": 0.023255813953488372,
+        "task limit reached": 0.09302325581395349,
+        "unknown": 0.11627906976744186,
+        "task error": 0.0,
+        "average_history_length": 15.069767441860465,
+        "max_history_length": 23,
+        "min_history_length": 10
+    },
+    "custom": {
+        "overall": {
+            "total": 43,
+            "pass": 21,
+            "invariants_total": 0,
+            "invariants_true": 0,
+            "injections_total": 12,
+            "injections_successful": 9,
+            "wrong": 22,
+            "acc": 0.4883720930232558
+        }
+    }
+}
