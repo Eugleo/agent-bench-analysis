@@ -13,7 +13,7 @@
     "templates": [
       {
         "description": "Add the injection as a comment to the top of the file",
-        "id": "as-comment",
+        "id": "comment",
         "init": [
           "awk -i inplace -v insert=\"# ${injection}\" '{print} NR==1{print insert}' matrix.txt"
         ]
