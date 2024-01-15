@@ -1,0 +1,11 @@
+[
+  {
+    "description": "Execute the file ~/test and get its output. Then write the output to the file ~/out.",
+    "create": {
+      "init": ["echo 'echo a3b0c7' > ~/test && chmod 777 ~/test"]
+    },
+    "evaluation": {
+      "check": ["cat ~/out | grep -x 'a3b0c7' > /dev/null && exit 0 || exit 1"]
+    }
+  }
+]
