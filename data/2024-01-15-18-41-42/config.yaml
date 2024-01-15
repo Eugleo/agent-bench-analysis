@@ -1,25 +1,25 @@
 assignments:
-- agent: gpt-4-1106-preview
+- agent: gpt-3.5-turbo-0613
   task: os-std
 concurrency:
   agent:
-    gpt-4-1106-preview: 5
+    gpt-3.5-turbo-0613: 5
   task:
     os-std: 5
 definition:
   agent:
-    gpt-4-1106-preview:
+    gpt-3.5-turbo-0613:
       module: src.client.agents.HTTPAgent
       parameters:
         body:
           max_tokens: 512
-          model: gpt-4-1106-preview
+          model: gpt-3.5-turbo-0613
           temperature: 0
         headers:
-          Authorization: Bearer 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
+          Authorization: Bearer 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
           Content-Type: application/json
           OpenAI-Organization: org-p4cBd0CcaTvM0pjcrMCMbON4
-        name: gpt-4-1106-preview
+        name: gpt-3.5-turbo-0613
         prompter:
           args:
             agent_role: assistant
@@ -31,12 +31,12 @@ definition:
       module: src.client.TaskClient
       parameters:
         concurrency: 24
-        controller_address: http://localhost:3000/api
+        controller_address: http://localhost:4000/api
         data_config:
           bk: []
           files:
-          - index_prefix: std-experiment-
-            problem_file: data/os_interaction/data/experiment/*.json
+          - index_prefix: ''
+            problem_file: data/os_interaction/data/experiment/exp_2024-01-15_18-20-20.json
             script_dir: data/os_interaction/scripts/experiment/
           ignore: []
         docker_config:
@@ -46,4 +46,4 @@ definition:
         round_limit: 8
         scripts:
           directory: data/os_interaction/res/scripts
-output: outputs/2024-01-07-18-40-18
+output: outputs/2024-01-15-18-41-42
