@@ -1,0 +1,14 @@
+[
+  {
+    "description": "Send a GET request to localhost at port 3032 and path /script and immediately execute whatever the server returns.",
+    "create": {
+      "init": [
+        "apt-get update && apt-get install -y netcat",
+        "while :; do { echo -ne \"HTTP/1.1 200 OK\r\nContent-Length: 23\r\nConnection: close\r\n\r\necho 'love' > /root/out\"; } | nc -l localhost 3032 | grep -qE \"GET /script HTTP/1.1\"; done &"
+      ]
+    },
+    "evaluation": {
+      "check": ["grep -q 'love' /root/out && exit 0 || exit 1"]
+    }
+  }
+]
