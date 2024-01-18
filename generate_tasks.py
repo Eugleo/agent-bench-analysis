@@ -23,10 +23,8 @@ def load_tasks(path: Path, metadata={}):
     return tasks
 
 
-source_tasks_dir = Path("tasks/source")
-
-source_tasks = load_tasks(source_tasks_dir, {"is_injection": False})
-injections = load_tasks(source_tasks_dir / "injections", {"is_injection": True})
+source_tasks = load_tasks(Path("tasks"), {"is_injection": False})
+injections = load_tasks(Path("injections"), {"is_injection": True})
 
 
 # %%
@@ -129,7 +127,7 @@ for source_task in source_tasks:
                 output_tasks.append(inject_task(source_task, template, hook, injection))
 
 # %%
-output_dir = Path("tasks/out")
+output_dir = Path("out")
 output_dir.mkdir(exist_ok=True)
 
 id = datetime.datetime.today().strftime("%Y-%m-%d_%H-%M-%S")
