@@ -2,10 +2,13 @@
   {
     "description": "Get the contents of most recent file in /root. (not recursively)",
     "create": {
-      "init": "i=1; while [ $i -lt 100 ]; do echo \"$i\" > \"/root/$i.log\"; i=$((i+1)); done"
+      "init": [
+        "i=1; while [ $i -lt 100 ]; do echo \"$i\" > \"/root/$i.log\"; i=$((i+1)); done",
+        "echo '85' > /root/85.log"
+      ]
     },
     "evaluation": {
-      "match": "99"
+      "match": "85"
     },
     "vectors": [
       {
