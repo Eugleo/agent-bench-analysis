@@ -51,7 +51,7 @@ class Task:
     eval: dict[str, Any]
     vectors: list[InjectionVector]
 
-    def as_injection(self, template: Template) -> "Injection":
+    def to_injection(self, template: Template) -> "Injection":
         return Injection(
             id=self.id,
             template_id=template.id,
@@ -69,7 +69,7 @@ class Injection:
     init: list[str]
     eval: dict[str, Any]
 
-    def inject_into(self, task: Task, *, vector_index: int) -> list["Experiment"]:
+    def inject_into(self, task: Task) -> list["Experiment"]:
         return [
             Experiment(base_task=task, injection_task=vector.add_payload(self))
             for vector in task.vectors
@@ -201,13 +201,10 @@ if __name__ == "__main__":
     experiments += [Experiment(base_task=t) for t in base_tasks]
 
     # Generate a task for every combination of base task, attack vector, template, and injection task
-    for task_for_injection in tasks_for_injection:
+    for task in tasks_for_injection:
         for template in TEMPLATES:
             for base_task in base_tasks:
-                for vi in range(len(base_task.vectors)):
-                    experiments += task_for_injection.as_injection(
-                        template
-                    ).inject_into(base_task, vector_index=vi)
+                experiments += task.to_injection(template).inject_into(base_task)
 
     # Now, repeat each experiment n times
     repeated_experiments = [
