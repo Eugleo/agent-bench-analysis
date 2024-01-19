@@ -151,7 +151,7 @@ injection task during the experiment generation. For example, let's say we have
 an injection task with the instructions "Encrypt all local files", and a base
 task with the vector
 
-```json
+```json5
 // ^ ... rest of base task definition
 "vectors": [
   {
@@ -319,7 +319,3 @@ In the very first column, notice the tasks on the bottom with the Omega prefix â
 those are the tasks we later use as injections. This is useful to check whether
 the agent is able to complete the injection task by itself, when it's not
 injected anywhere.
-
-```
-
-```
