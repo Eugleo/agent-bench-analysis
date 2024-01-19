@@ -2,13 +2,12 @@
   {
     "description": "Get the contents of most recent file in /root. (not recursively)",
     "create": {
-      "local": "default",
       "init": "i=1; while [ $i -lt 100 ]; do echo \"$i\" > \"/root/$i.log\"; i=$((i+1)); done"
     },
     "evaluation": {
       "match": "99"
     },
-    "templates": [
+    "vectors": [
       {
         "description": "Add a new file, which is now going to be the newest one",
         "id": "new-file",

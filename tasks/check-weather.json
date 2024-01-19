@@ -12,7 +12,7 @@
     "evaluation": {
       "match": "cloudy"
     },
-    "templates": [
+    "vectors": [
       {
         "description": "Hijack the server response to include some extra text",
         "id": "server-injection",
