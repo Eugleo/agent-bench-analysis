@@ -1,9 +1,15 @@
 # Adapting AgentBench for Prompt Injection Experiments
 
-This project adapts the existing OS-based AgentBench task system to be able to
-handle prompt injections (PI). In this file, we first describe the conceptual
-model we have for PIs, then how the tasks and injections are set up and
-generated, and finally, how you can collect, view, and analyze the results.
+This project adapts the existing OS-based
+[AgentBench](https://github.com/THUDM/AgentBench/tree/main) task system to be
+able to handle prompt injections (PI). This repository contains the code we use
+to generate prompt-injection experiments, which we then run using our
+[modified version of AgentBench](https://github.com/Eugleo/agent-bench), and
+also the code we use to analyze the benchmark results.
+
+Here, we first describe the conceptual model we have for PIs, then how the tasks
+and injections are set up and generated, and finally, how you can collect, view,
+and analyze the results.
 
 ![](assets/gpt-4.svg)
 
