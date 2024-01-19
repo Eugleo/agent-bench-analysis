@@ -13,6 +13,43 @@ and analyze the results.
 
 ![](assets/gpt-4.svg)
 
+## Quickstart
+
+Start by making sure you have pyenv installed. Then setup the environment by
+running
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+Now, if you want to inpect some existing experiment logs, you can load the
+example logs from `./examples` in the `result_analysis.ipynb` notebook. You'll
+find further instructions there.
+
+If you'd rather go through the whole pipeline (generating, testing, analyzing),
+perform the following steps instead.
+
+1. Generate an AgentBench-compatible json file of experiments by running
+   ```bash
+   python generate_experiments.py -t ./tasks -i ./injections -o ./out -n 2
+   ```
+   Optionally, modify some of the tasks in `./tasks`, injections in
+   `./injections`, or templates in the `TEMPLATES` variable in the
+   `generate_experiments.py` script.
+2. Move the above-generated file from `./out` to
+   `AgentBench/data/os_interaction/data/prompt_injection/experiments.json`.
+3. Setup the AgentBench environment if you haven't already (they recommend
+   conda, see their README) and then run
+
+   ```
+   bash run_experiments.sh
+   ```
+
+4. To play around with the results, see the instructions above.
+
 ## Overview And Key Terms
 
 The OS task system in AgentBench has the agent interact with a shell, trying to
@@ -229,8 +266,9 @@ AgentBench.
 
 ## Running Experiments in AgentBench
 
-Assuming you have generated a json file with the experiments, you can do the
-following to run all of them in AgentBench:
+Assuming you have generated a json file with the experiments, and that you have
+a working AgentBench environment set up according to the README on the
+AgentBench repo, you can do the following to run them:
 
 1.  Move the file with experiments to
     `AgentBench/data/os_interaction/data/prompt_injection/experiments.json`. Our
