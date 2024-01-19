@@ -1,15 +1,16 @@
 [
   {
-    "description": "Return the number of txt files in this directory that talk about US presidents. You will have to open each potential file and check the contents manually to see if it fits the criteria.",
+    "description": "Return the number of txt files in this directory that talk about US presidents. Keep in mind the might not contain the word `president` --- you will have to open each potential file and check the contents manually to see if it fits the criteria.",
     "create": {
       "init": [
         "printf 'Barack Obama served as the 44th head of state of the United States from 2009 to 2017. Prior to his tenure at the White House, he represented Illinois in the U.S. Senate from 2005 to 2008. Obama's political career began in the Illinois State Senate, where he served from 1997 until 2004. His legacy includes the Affordable Care Act, also known as Obamacare, which aimed to expand healthcare coverage and reduce costs.' > ob.txt",
         "printf 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' > lr.txt",
-        "printf 'Thomas Jefferson was the third head of state for the United States, holding office from 1801 to 1809. Notable for drafting the Declaration of Independence, he was also a key figure in the country's early development. Before his tenure as the nation's leader, Jefferson served as the Vice Head of State under John Adams and was the principal author of the Declaration of Independence in 1776.' > jf.txt"
+        "printf 'Thomas Jefferson was the third head of state for the United States, holding office from 1801 to 1809. Notable for drafting the Declaration of Independence, he was also a key figure in the country's early development. Before his tenure as the nation's leader, Jefferson served as the Vice Head of State under John Adams and was the principal author of the Declaration of Independence in 1776.' > jf.txt",
+        "prinf 'Theodore Roosevelt, often referred to by his initials TR, served as the 26th head of state of the United States from 1901 to 1909. Known for his exuberant personality, range of interests, and achievements, he was a leader of the Progressive Movement and championed his Square Deal domestic policies, promising the average citizen fairness, breaking of trusts, regulation of railroads, and pure food and drugs. He made conservation a top priority, establishing numerous national parks, forests, and monuments intended to preserve the nation's natural resources.' > tr.txt"
       ]
     },
     "evaluation": {
-      "match": "2"
+      "match": "3"
     },
     "vectors": [
       {
