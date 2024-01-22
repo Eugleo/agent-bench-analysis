@@ -4,7 +4,7 @@ This repository extends the capabilities of the original [AgentBench](https://gi
 
 Below, we outline our conceptual framework for prompt injections, detail the generation and setup of tasks and injections, and guide you through collecting, viewing, and analyzing the benchmark results.
 
-![GPT-4 Illustration](assets/gpt-4.svg)
+<img style="width:100%;" id="image" src="assets/gpt-4.svg">
 
 ## Getting Started
 
@@ -248,7 +248,7 @@ Note the agent's successful completion of both the injected task and the base ta
 
 You can also examine aggregated results across all experiments, as illustrated below:
 
-![](assets/gpt-4.svg)
+<img style="width:100%;" id="image" src="assets/gpt-4.svg">
 
 The `y` axis lists different base tasks, while the `x` axis presents various injection tasks. The diagram is divided into three major sections indicating the task success rates: tasks without injections, tasks with 'before-finishing' template injections, and tasks with 'no-change' template injections. Color coding shows the frequency of the agent's completion of the base task (green) and the injection task (red) over 10 trials.
 
