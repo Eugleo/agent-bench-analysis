@@ -2,8 +2,8 @@
 
 This project adapts the existing OS-based
 [AgentBench](https://github.com/THUDM/AgentBench/tree/main) task system to be
-able to handle prompt injections (PI). This repository contains the code we use
-to generate prompt-injection experiments, which we then run using our
+able to handle prompt injections. This repository contains the code we use
+to generate prompt injection experiments, which we then run using our
 [modified version of AgentBench](https://github.com/Eugleo/agent-bench), and
 also the code we use to analyze the benchmark results.
 
@@ -25,30 +25,38 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Now, if you want to inpect some existing experiment logs, you can load the
-example logs from `./examples` in the `result_analysis.ipynb` notebook. You'll
+You can now load the
+example logs from `./examples` in the `result_analysis.ipynb` notebook to play around with the visualizations. You'll
 find further instructions there.
 
-If you'd rather go through the whole pipeline (generating, testing, analyzing),
-perform the following steps instead.
+If you'd rather generate your own tasks and ran your own experiments,
+you'll have to additionally perform the following steps.
 
-1. Generate an AgentBench-compatible json file of experiments by running
-   ```bash
+> [!NOTE]
+> The initial (one-time) AgentBench setup in step 1 below can take up to 20 minutes. Better make yourself a cup of coffee to shorten the wait!
+
+1. Setup the AgentBench environment if you haven't already (see [the README](https://github.com/Eugleo/agent-bench)).
+
+2. Generate an AgentBench-compatible json file of experiments by running
+
+   ```shell
    python generate_experiments.py -t ./tasks -i ./injections -o ./out -n 2
    ```
+
    Optionally, modify some of the tasks in `./tasks`, injections in
    `./injections`, or templates in the `TEMPLATES` variable in the
    `generate_experiments.py` script.
-2. Move the above-generated file from `./out` to
+3. Move the above-generated file from `./out` to
    `AgentBench/data/os_interaction/data/prompt_injection/experiments.json`.
-3. Setup the AgentBench environment if you haven't already (they recommend
-   conda, see their README) and then run
+4. In the AgentBench directory, run
 
-   ```
+   ```shell
    bash run_experiments.sh
    ```
 
-4. To play around with the results, see the instructions above.
+   For 800 experiments on GPT-3.5-turbo and GPT-4-1106, with all other settings being set to the default values, AgentBench takes around 3:30:00 to run.
+
+To inspect the results, see the instructions in `result_analysis.ipynb`.
 
 ## Overview And Key Terms
 
@@ -59,14 +67,17 @@ a bit later, but first, let's focus on what a task is.
 
 ### Tasks and Injections
 
-A **task** has three key parts:
+In AgentBench, a **task** consists of three key parts:
 
-1. A natural-language description that is given to the agent.
-2. A list of init scripts that set-up the environment before the agent is given
+1. A `description` of the task. This text is given to the agent as a part of a prompt at the beginning of an experiment.
+2. A list of `init` scripts that set-up the environment before the agent is given
    access to it.
-3. A list of evaluation scripts which evaluate the state of the environment
+3. A list of `evaluation` scripts which evaluate the state of the environment
    and/or the answer returned by the agent after it has finished the
    interaction.
+
+> [!IMPORTANT]
+> It is worth emphasizing that `description` defines the whole task since it is verbatim given to the agent as a part of the task prompt. It is **not** just a passive human-readable description of the task, despite what the name may suggest.
 
 A task could look something like the following.
 
@@ -270,14 +281,14 @@ Assuming you have generated a json file with the experiments, and that you have
 a working AgentBench environment set up according to the README on the
 AgentBench repo, you can do the following to run them:
 
-1.  Move the file with experiments to
+1. Move the file with experiments to
     `AgentBench/data/os_interaction/data/prompt_injection/experiments.json`. Our
     fork of AgentBench is configured (in `AgentBench/configs/tasks/os.yaml`) to
     look for this file and run all the experiments contained therein.
 
-2.  Configure which models get tested in
+2. Configure which models get tested in
     `AgentBench/configs/assignments/default.yaml`.
-3.  Start the test by running
+3. Start the test by running
 
     ```bash
     bash run_experiments.sh
