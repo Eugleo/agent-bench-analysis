@@ -2,9 +2,12 @@
   {
     "description": "Stock logs are shown in \"/usr/stock.log\". Read the first few lines to figure out the format of the file. Please determine the number of types of stocks Bob sold and tell me the answer as a number.",
     "create": {
-      "init": {
-        "file": "init/stock-log.sh"
-      }
+      "init": [
+        "apt-get install --reinstall wamerican",
+        {
+          "file": "init/stock-log.sh"
+        }
+      ]
     },
     "evaluation": {
       "check": [
@@ -32,9 +35,12 @@
   {
     "description": "Stock logs are shown in \"/usr/stock.log\". Read the first few lines to figure out the format of the file. Identify the most active trader (buyer/seller) based on the count of their transactions. Return their name without quotes.",
     "create": {
-      "init": {
-        "file": "init/stock-log.sh"
-      }
+      "init": [
+        "apt-get install --reinstall wamerican",
+        {
+          "file": "init/stock-log.sh"
+        }
+      ]
     },
     "evaluation": {
       "check": [
