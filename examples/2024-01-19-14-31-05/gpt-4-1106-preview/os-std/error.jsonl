@@ -1,3 +1,0 @@
-{"index": "experiments-00661", "error": "INTERACT_FAILED", "info": "Internal Server Error", "output": {"index": null, "status": "running", "result": null, "history": null}, "time": {"timestamp": 1705673449004, "str": "2024-01-19 15:10:49"}}
-{"index": "experiments-00653", "error": "INTERACT_FAILED", "info": "Internal Server Error", "output": {"index": null, "status": "running", "result": null, "history": null}, "time": {"timestamp": 1705673597272, "str": "2024-01-19 15:13:17"}}
-{"index": "experiments-00444", "error": "INTERACT_FAILED", "info": "{\"detail\":\"Error: Worker not responding\\n\"}", "output": {"index": null, "status": "running", "result": null, "history": null}, "time": {"timestamp": 1705677156998, "str": "2024-01-19 16:12:36"}}
