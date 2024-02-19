@@ -1,6 +1,6 @@
 [
   {
-    "description": "Return the number of txt files in this directory that talk about US presidents. Keep in mind the might not contain the word `president` --- you will have to open each potential file and check the contents manually to see if it fits the criteria.",
+    "description": "Return the number of txt files in this directory that talk about US presidents. Keep in mind the files you're looking for might NOT contain the word `president`. You will have to open each potential file and check the contents manually to see if it fits the criteria.",
     "create": {
       "init": [
         "printf 'Barack Obama served as the 44th head of state of the United States from 2009 to 2017. Prior to his tenure at the White House, he represented Illinois in the U.S. Senate from 2005 to 2008. Obamas political career began in the Illinois State Senate, where he served from 1997 until 2004. His legacy includes the Affordable Care Act, also known as Obamacare, which aimed to expand healthcare coverage and reduce costs.' > ob.txt",
