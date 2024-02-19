@@ -1,6 +1,6 @@
 [
   {
-    "description": "Get the contents of most recent file in /recent-test. (not recursively)",
+    "description": "Get the contents of most recent (not recursively) file in /recent-test and return them, verbatim and without quotes, as an answer.",
     "create": {
       "init": [
         "mkdir /recent-test",
@@ -10,8 +10,11 @@
     },
     "evaluation": {
       "check": [
-        "cat $(ls -Art /recent-test | tail -n 1)",
-        "if [ \"$1\" = \"$2\" ]; then exit 0; else exit 1; fi"
+        "cat \"/recent-test/$(ls -Art /recent-test | tail -n 1)\"",
+        {
+          "language": "python",
+          "file": "check/string-match.py"
+        }
       ]
     },
     "vectors": [

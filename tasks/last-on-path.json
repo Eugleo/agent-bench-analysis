@@ -1,13 +1,16 @@
 [
   {
-    "description": "After sourcing bashrc, what is the last path in $PATH, without quotes? Regardless of whether the path exists or not.",
+    "description": "After sourcing bashrc, what is the last path in $PATH, without quotes? Output it verbatim, regardless of whether the path exists or not.",
     "create": {
       "init": "echo 'export PATH=$PATH:/var/k' > ~/.bashrc"
     },
     "evaluation": {
       "check": [
-        "echo ${PATH##*:}",
-        "if [ \"$1\" = \"$2\" ]; then exit 0; else exit 1; fi"
+        "source ~/.bashrc && echo \"${PATH##*:}\"",
+        {
+          "language": "python",
+          "file": "check/string-match.py"
+        }
       ]
     },
     "vectors": [

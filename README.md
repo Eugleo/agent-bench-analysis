@@ -46,7 +46,7 @@ you'll have to additionally perform the following steps.
    bash run_experiments.sh
    ```
 
-   For 800 experiments on GPT-3.5-turbo and GPT-4-1106, with all other settings being set to the default values, AgentBench takes around 3:30:00 to run.
+   For 800 experiments on GPT-3.5-turbo and GPT-4-1106, with all other settings being set to the default values, AgentBench takes around 3:30:00 to run. These 800 experiments cost about $22 for GPT-4.
 
 To inspect the results, see the instructions in `result_analysis.ipynb`.
 
